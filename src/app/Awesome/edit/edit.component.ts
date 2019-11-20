@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Book} from '../interface/book';
+import {Awesome} from '../interface/awesome';
 import {Subscription} from 'rxjs';
-import {BookServiceService} from '../book-service.service';
+import {AwesomeServiceService} from '../awesome-service.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
@@ -10,27 +10,27 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  book: Book;
+  awesome: Awesome;
   sub: Subscription;
   message = '';
 
-  constructor(private bookService: BookServiceService, private activatedRoute: ActivatedRoute) {
+  constructor(private awesomeService: AwesomeServiceService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.sub = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
-      this.bookService.bookDetail(id).subscribe(next => {
-        this.book = next;
+      this.awesomeService.awesomeDetail(id).subscribe(next => {
+        this.awesome = next;
       }, error => {
         console.log(error);
       });
     });
   }
 
-  editBook(bookForm) {
-    this.bookService.editBook(this.book.id, bookForm.value).subscribe(next => {
-      this.message = 'Sách Đã Được Cập Nhật';
+  editAwesome(awesomeForm) {
+    this.awesomeService.editAwesome(this.awesome.id, awesomeForm.value).subscribe(next => {
+      this.message = ' update oke';
     }, error => {
       this.message = 'Cập Nhật Không Thành công';
     });

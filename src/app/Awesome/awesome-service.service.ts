@@ -1,33 +1,33 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Book} from './interface/book';
+import {Awesome} from './interface/awesome';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookServiceService {
+export class AwesomeServiceService {
   constructor(private http: HttpClient) {
   }
 
-  getBook(): Observable<Book[]> {
-    return this.http.get<Book[]>('http://localhost:3000/awesomes');
+  getAwesome(): Observable<Awesome[]> {
+    return this.http.get<Awesome[]>('http://localhost:3000/awesomes/');
   }
 
-  bookCreate(book: Partial<Book>): Observable<Book> {
-    return this.http.post<Book>('http://localhost:3000/awesomes', book);
+  awesomeCreate(awesome: Partial<Awesome>): Observable<Awesome> {
+    return this.http.post<Awesome>('http://localhost:3000/awesomes/', awesome);
   }
 
-  editBook(id: number, book: Partial<Book>): Observable<Book> {
-    return this.http.put<Book>(`hhttp://localhost:3000/awesomes/${id}`, book);
+  editAwesome(id: number, awesome: Partial<Awesome>): Observable<Awesome> {
+    return this.http.put<Awesome>(`http://localhost:3000/awesomes/${id}`, awesome);
   }
 
-  bookDetail(id: string): Observable<Book> {
-    return this.http.get<Book>(`http://localhost:3000/awesomes/${id}`);
+  awesomeDetail(id: string): Observable<Awesome> {
+    return this.http.get<Awesome>(`http://localhost:3000/awesomes/${id}`);
   }
 
-  bookDelete(id: number): Observable<Book> {
-    return this.http.delete<Book>(`http://localhost:3000/awesomes/${id}`);
+  awesomeDelete(id: number): Observable<Awesome> {
+    return this.http.delete<Awesome>(`http://localhost:3000/awesomes/${id}`);
   }
 }
 

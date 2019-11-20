@@ -2,7 +2,8 @@
 <div *ngIf="message">
   <p style="color: red">{{ message }}</p>
 </div>
-<form #bookForm="ngForm" (ngSubmit)="createBook(bookForm)">
+<div>
+  <form #awesomeForm="ngForm" (ngSubmit)="createAwesome(awesomeForm)">
   <table class="table table-bordered">
     <tr>
       <th class="form-group">
@@ -10,7 +11,7 @@
       </th>
       <td>
         <label>
-          <input type="text" name="title" ngModel class="form-control"/>
+          <input type="text" name="tag" ngModel class="form-control"/>
         </label>
       </td>
     </tr>
@@ -21,7 +22,7 @@
       </th>
       <td>
         <label>
-          <input type="text" name="author" ngModel class="form-control"/>
+          <input type="text" name="url" ngModel class="form-control"/>
         </label>
       </td>
     </tr>
@@ -30,7 +31,7 @@
         <label>Descriptions:</label>
       </th>
       <td><label>
-        <textarea type="text" name="description" ngModel class="form-control"></textarea>
+        <textarea type="text" name="descriptions" ngModel class="form-control"></textarea>
       </label>
       </td>
     </tr>
@@ -39,3 +40,4 @@
     <button type="submit" class="btn btn-success" style="margin-left: 450px">create</button>
   </div>
 </form>
+</div>

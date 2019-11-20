@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Book} from '../interface/book';
+import {Awesome} from '../interface/awesome';
 import {Subscription} from 'rxjs';
-import {BookServiceService} from '../book-service.service';
+import {AwesomeServiceService} from '../awesome-service.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
@@ -10,23 +10,23 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  book: Book;
+  awesome: Awesome;
   sub: Subscription;
 
-  constructor(private bookService: BookServiceService, private activatedRoute: ActivatedRoute) {
+  constructor(private awesomeService: AwesomeServiceService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.sub = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
       console.log(id);
-      this.bookService.bookDetail(id).subscribe(next => {
-        this.book = next;
+      this.awesomeService.awesomeDetail(id).subscribe(next => {
+        this.awesome = next;
       }, error => {
         console.log(error);
       });
     });
-    console.log(this.book);
+    console.log(this.awesome);
   }
 
 }

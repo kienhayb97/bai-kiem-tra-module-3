@@ -1,6 +1,6 @@
-<a [routerLink]="'createBook'" class="btn btn-success" > Create Awesome</a><br>
+<a [routerLink]="'createAwesome'" class="btn btn-success" > Create Awesome</a><br>
 <router-outlet></router-outlet>
-<p>Yes {{bookList.length}} new create </p>
+<p>Yes {{awesomeList.length}} new create </p>
 <div>
   <table class="table table-bordered">
     <tr>
@@ -10,12 +10,12 @@
       <th>Edit</th>
       <th>Delete</th>
     </tr>
-    <tr *ngFor="let book of bookList">
-      <td><a [routerLink]="['viewBook',book.id]">{{book.title}}</a></td>
-      <td> <a [routerLink]="['viewBook',book.id]">{{book.author}}</a></td>
-      <td> <a [routerLink]="['viewBook',book.id]">{{book.description}}</a></td>
-      <td><a [routerLink]="['editBlog',book.id]">edit</a></td>
-      <td><a [routerLink]="['deleteBlog',book.id]">Delete</a></td>
+    <tr *ngFor="let awesome of awesomeList">
+      <td><a [routerLink]="['viewAwesome',awesome.id]">{{awesome.tag}}</a></td>
+      <td> <a [routerLink]="['viewAwesome',awesome.id]">{{awesome.url}}</a></td>
+      <td> <a [routerLink]="['viewAwesome',awesome.id]">{{awesome.descriptions}}</a></td>
+      <td><a [routerLink]="['editBlog',awesome.id]">edit</a></td>
+      <td><a [routerLink]="['deleteBlog',awesome.id]">Delete</a></td>
     </tr>
   </table>
 </div>

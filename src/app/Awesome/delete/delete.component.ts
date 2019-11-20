@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Book} from '../interface/book';
+import {Awesome} from '../interface/awesome';
 import {Subscription} from 'rxjs';
-import {BookServiceService} from '../book-service.service';
+import {AwesomeServiceService} from '../awesome-service.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
@@ -10,18 +10,18 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
   styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent implements OnInit {
-  book: Book;
+  awesome: Awesome;
   sub: Subscription;
   message = '';
 
-  constructor(private bookService: BookServiceService, private activatedRoute: ActivatedRoute) {
+  constructor(private awesomeService: AwesomeServiceService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.sub = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
-      this.bookService.bookDetail(id).subscribe(next => {
-        this.book = next;
+      this.awesomeService.awesomeDetail(id).subscribe(next => {
+        this.awesome = next;
       }, error => {
         this.message = 'can not retrieve customer detail. ' + error;
       });
@@ -29,11 +29,11 @@ export class DeleteComponent implements OnInit {
   }
 
   delete() {
-    console.log(this.book.id);
-    this.bookService.bookDelete(this.book.id).subscribe(next => {
-      this.message = 'Đã xóa sách';
+    console.log(this.awesome.id);
+    this.awesomeService.awesomeDelete(this.awesome.id).subscribe(next => {
+      this.message = 'delete';
     }, error => {
-      this.message = 'Xóa Không Thành Công';
+      this.message = 'Do not delete ';
     });
   }
 }

@@ -1,18 +1,18 @@
-<p> do you want Delete : <u class="text-danger">{{book.title}}</u></p>
+<p> do you want Delete : <u class="text-danger">{{awesome.tag}}</u></p>
 <div *ngIf="message">
-  <p style="color: red">{{ message }} : <u class="text-danger">{{book.title}}</u></p>
+  <p style="color: red">{{ message }} : <u class="text-danger">{{awesome.tag}}</u></p>
 </div>
 <table class="table table-bordered">
   <tr>
     <th><p>Tag: </p></th>
-    <td>{{book.title}}</td>
+    <td>{{awesome.tag}}</td>
   </tr>
   <tr>
     <th><p>URL: </p></th>
-    <td>{{book.author}}</td>
+    <td>{{awesome.url}}</td>
   </tr> <tr>
   <th><p>Descriptions : </p></th>
-  <td>{{book.description}}</td>
+  <td>{{awesome.descriptions}}</td>
 </tr>
 </table>
 <input type="button" value="Delete" class="btn btn-success" style="margin-left: 60px"  (click)="delete()">

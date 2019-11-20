@@ -2,46 +2,49 @@
 <div *ngIf="message">
   <p style="color: red">{{ message }}</p>
 </div>
-<form #bookForm="ngForm" (ngSubmit)="editBook(bookForm)">
-  <table>
-    <div class="form-group">
-      <label>
-        <input type="hidden" [(ngModel)]="book.id" name="id" ngModel class="form-control"/>
-      </label>
-    </div>
+<div *ngIf="awesome">
+  <form #awesomeForm="ngForm" (ngSubmit)="editAwesome(awesomeForm)">
+    <table>
+      <div class="form-group">
+        <label>
+          <input type="hidden" [(ngModel)]="awesome.id" name="id" ngModel class="form-control"/>
+        </label>
+      </div>
 
-    <tr class="form-group">
-      <th>
-        <label>Title:</label>
-      </th>
-      <td>
-        <label>
-          <input type="text" [(ngModel)]="book.title" name="title" ngModel class="form-control"/>
-        </label>
-      </td>
-    </tr>
-    <tr class="form-group">
-      <th>
-        <label>Author:</label>
-      </th>
-      <td>
-        <label>
-          <input type="text" [(ngModel)]="book.author" name="author" ngModel class="form-control"/>
-        </label>
-      </td>
-    </tr>
-    <tr class="form-group">
-      <th>
-        <label>Description:</label>
-      </th>
-      <td>
-        <label>
-        <textarea type="text" [(ngModel)]="book.description" name="description" ngModel class="form-control"></textarea>
-      </label>
-      </td>
-    </tr>
-  </table>
-  <div>
-    <button type="submit" class="btn btn-success" style="margin-left: 100px">Update</button>
-  </div>
-</form>
+      <tr class="form-group">
+        <th>
+          <label>tag:</label>
+        </th>
+        <td>
+          <label>
+            <input type="text" [(ngModel)]="awesome.tag" name="tag" ngModel class="form-control"/>
+          </label>
+        </td>
+      </tr>
+      <tr class="form-group">
+        <th>
+          <label>url:</label>
+        </th>
+        <td>
+          <label>
+            <input type="text" [(ngModel)]="awesome.url" name="url" ngModel class="form-control"/>
+          </label>
+        </td>
+      </tr>
+      <tr class="form-group">
+        <th>
+          <label>Description:</label>
+        </th>
+        <td>
+          <label>
+            <textarea type="text" [(ngModel)]="awesome.descriptions" name="descriptions" ngModel class="form-control"></textarea>
+          </label>
+        </td>
+      </tr>
+    </table>
+    <div>
+      <button type="submit" class="btn btn-success" style="margin-left: 100px">Update</button>
+    </div>
+  </form>
+
+</div>

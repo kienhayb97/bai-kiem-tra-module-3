@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {BookServiceService} from '../book-service.service';
-import {Book} from '../interface/book';
+import {AwesomeServiceService} from '../awesome-service.service';
+import {Awesome} from '../interface/awesome';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +8,15 @@ import {Book} from '../interface/book';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  bookList: Book[];
+  awesomeList: Awesome[];
 
-  constructor(private bookService: BookServiceService) {
+  constructor(private awesomeService: AwesomeServiceService) {
   }
 
   ngOnInit() {
-    this.bookService.getBook().subscribe(next => {
-      this.bookList = next;
-      console.log(this.bookList);
+    this.awesomeService.getAwesome().subscribe(next => {
+      this.awesomeList = next;
+      console.log(this.awesomeList);
     });
   }
 

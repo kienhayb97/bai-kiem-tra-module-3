@@ -1,6 +1,6 @@
-export interface Book {
+export interface Awesome {
   id: number;
-  title: string;
-  author: string;
-  description: string;
+  tag: string;
+  url: string;
+  descriptions: string;
 }

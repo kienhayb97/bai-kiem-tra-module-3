@@ -1,14 +1,16 @@
-<h3>detail Awesome </h3>
-<table class="table table-bordered">
-  <tr>
-    <th><p>Tag : </p></th>
-    <td>{{book.title}}</td>
+<div *ngIf="awesome">
+  <h3>detail Awesome </h3>
+  <table class="table table-bordered">
+    <tr>
+      <th><p>Tag : </p></th>
+      <td>{{awesome.tag}}</td>
+    </tr>
+    <tr>
+      <th><p>URL : </p></th>
+      <td>{{awesome.url}}</td>
+    </tr> <tr>
+    <th><p>Description : </p></th>
+    <td>{{awesome.descriptions}}</td>
   </tr>
-  <tr>
-    <th><p>URL : </p></th>
-    <td>{{book.author}}</td>
-  </tr> <tr>
-  <th><p>Description : </p></th>
-  <td>{{book.description}}</td>
-</tr>
-</table>
+  </table>
+</div>

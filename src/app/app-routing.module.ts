@@ -1,32 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './book/home/home.component';
-import {ViewComponent} from './book/view/view.component';
-import {CreateComponent} from './book/create/create.component';
-import {DeleteComponent} from './book/delete/delete.component';
-import {EditComponent} from './book/edit/edit.component';
+import {HomeComponent} from './Awesome/home/home.component';
+import {ViewComponent} from './Awesome/view/view.component';
+import {CreateComponent} from './Awesome/create/create.component';
+import {DeleteComponent} from './Awesome/delete/delete.component';
+import {EditComponent} from './Awesome/edit/edit.component';
 
 
 const routes: Routes = [
   {
-    path: 'homeBook',
+    path: 'homeAwesome',
     component: HomeComponent
   },
   {
-    path: 'homeBook/viewBook/:id',
+    path: 'homeAwesome/viewAwesome/:id',
     component: ViewComponent
   },
 
   {
-    path: 'homeBook/createBook',
+    path: 'homeAwesome/createAwesome',
     component: CreateComponent
   },
   {
-    path: 'homeBook/deleteBlog/:id',
+    path: 'homeAwesome/deleteBlog/:id',
     component: DeleteComponent
   },
   {
-    path: 'homeBook/editBlog/:id',
+    path: 'homeAwesome/editBlog/:id',
     component: EditComponent
   },
 ];

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BookServiceService} from '../book-service.service';
+import {AwesomeServiceService} from '../awesome-service.service';
 
 @Component({
   selector: 'app-create',
@@ -9,14 +9,14 @@ import {BookServiceService} from '../book-service.service';
 export class CreateComponent implements OnInit {
   message = '';
 
-  constructor(private bookService: BookServiceService) {
+  constructor(private awesomeService: AwesomeServiceService) {
   }
 
   ngOnInit() {
   }
 
-  createBook(bookForm) {
-    this.bookService.bookCreate(bookForm.value).subscribe(() => {
+  createAwesome(awesomeForm) {
+    this.awesomeService.awesomeCreate(awesomeForm.value).subscribe(() => {
       this.message = 'Tạo Mới Thành Công';
     }, error => {
       this.message = 'Tạo Mới Thất Bại';
