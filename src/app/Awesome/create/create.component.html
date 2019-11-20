@@ -1,4 +1,4 @@
-<h3>Thêm Sách mới</h3>
+<h3>Create </h3>
 <div *ngIf="message">
   <p style="color: red">{{ message }}</p>
 </div>
@@ -6,7 +6,7 @@
   <table class="table table-bordered">
     <tr>
       <th class="form-group">
-        <label>Title:</label>
+        <label>Tag:</label>
       </th>
       <td>
         <label>
@@ -17,7 +17,7 @@
 
     <tr>
       <th class="form-group">
-        <label>Author:</label>
+        <label>URL:</label>
       </th>
       <td>
         <label>
@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th class="form-group">
-        <label>Description:</label>
+        <label>Descriptions:</label>
       </th>
       <td><label>
         <textarea type="text" name="description" ngModel class="form-control"></textarea>
@@ -36,6 +36,6 @@
     </tr>
   </table>
   <div>
-    <button type="submit" class="btn btn-success" style="margin-left: 450px">Thêm sách</button>
+    <button type="submit" class="btn btn-success" style="margin-left: 450px">create</button>
   </div>
 </form>

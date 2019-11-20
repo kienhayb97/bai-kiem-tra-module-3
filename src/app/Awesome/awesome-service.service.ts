@@ -6,28 +6,28 @@ import {Book} from './interface/book';
 @Injectable({
   providedIn: 'root'
 })
-export class BookSeviceService {
+export class BookServiceService {
   constructor(private http: HttpClient) {
   }
 
   getBook(): Observable<Book[]> {
-    return this.http.get<Book[]>('http://localhost:3000/books');
+    return this.http.get<Book[]>('http://localhost:3000/awesomes');
   }
 
   bookCreate(book: Partial<Book>): Observable<Book> {
-    return this.http.post<Book>('http://localhost:3000/books', book);
+    return this.http.post<Book>('http://localhost:3000/awesomes', book);
   }
 
   editBook(id: number, book: Partial<Book>): Observable<Book> {
-    return this.http.put<Book>(`http://localhost:3000/books/${id}`, book);
+    return this.http.put<Book>(`hhttp://localhost:3000/awesomes/${id}`, book);
   }
 
   bookDetail(id: string): Observable<Book> {
-    return this.http.get<Book>(`http://localhost:3000/books/${id}`);
+    return this.http.get<Book>(`http://localhost:3000/awesomes/${id}`);
   }
 
   bookDelete(id: number): Observable<Book> {
-    return this.http.delete<Book>(`http://localhost:3000/books/${id}`);
+    return this.http.delete<Book>(`http://localhost:3000/awesomes/${id}`);
   }
 }
 

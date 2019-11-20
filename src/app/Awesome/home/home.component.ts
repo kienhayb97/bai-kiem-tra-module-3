@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BookSeviceService} from '../book-sevice.service';
+import {BookServiceService} from '../book-service.service';
 import {Book} from '../interface/book';
 
 @Component({
@@ -10,11 +10,11 @@ import {Book} from '../interface/book';
 export class HomeComponent implements OnInit {
   bookList: Book[];
 
-  constructor(private bookSevice: BookSeviceService) {
+  constructor(private bookService: BookServiceService) {
   }
 
   ngOnInit() {
-    this.bookSevice.getBook().subscribe(next => {
+    this.bookService.getBook().subscribe(next => {
       this.bookList = next;
       console.log(this.bookList);
     });

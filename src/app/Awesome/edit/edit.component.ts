@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from '../interface/book';
 import {Subscription} from 'rxjs';
-import {BookSeviceService} from '../book-sevice.service';
+import {BookServiceService} from '../book-service.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
@@ -14,13 +14,13 @@ export class EditComponent implements OnInit {
   sub: Subscription;
   message = '';
 
-  constructor(private bookSevice: BookSeviceService, private activatedRoute: ActivatedRoute) {
+  constructor(private bookService: BookServiceService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.sub = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
-      this.bookSevice.bookDetail(id).subscribe(next => {
+      this.bookService.bookDetail(id).subscribe(next => {
         this.book = next;
       }, error => {
         console.log(error);
@@ -29,7 +29,7 @@ export class EditComponent implements OnInit {
   }
 
   editBook(bookForm) {
-    this.bookSevice.editBook(this.book.id, bookForm.value).subscribe(next => {
+    this.bookService.editBook(this.book.id, bookForm.value).subscribe(next => {
       this.message = 'Sách Đã Được Cập Nhật';
     }, error => {
       this.message = 'Cập Nhật Không Thành công';

@@ -1,0 +1,21 @@
+<a [routerLink]="'createBook'" class="btn btn-success" > Create Awesome</a><br>
+<router-outlet></router-outlet>
+<p>Yes {{bookList.length}} new create </p>
+<div>
+  <table class="table table-bordered">
+    <tr>
+      <th>Tag</th>
+      <th>URL</th>
+      <th>Description</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let book of bookList">
+      <td><a [routerLink]="['viewBook',book.id]">{{book.title}}</a></td>
+      <td> <a [routerLink]="['viewBook',book.id]">{{book.author}}</a></td>
+      <td> <a [routerLink]="['viewBook',book.id]">{{book.description}}</a></td>
+      <td><a [routerLink]="['editBlog',book.id]">edit</a></td>
+      <td><a [routerLink]="['deleteBlog',book.id]">Delete</a></td>
+    </tr>
+  </table>
+</div>

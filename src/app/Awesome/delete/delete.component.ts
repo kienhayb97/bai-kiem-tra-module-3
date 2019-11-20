@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../interface/book';
 import {Subscription} from 'rxjs';
-import {BookSeviceService} from '../book-sevice.service';
+import {BookServiceService} from '../book-service.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
@@ -14,13 +14,13 @@ export class DeleteComponent implements OnInit {
   sub: Subscription;
   message = '';
 
-  constructor(private bookSevice: BookSeviceService, private activatedRoute: ActivatedRoute) {
+  constructor(private bookService: BookServiceService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.sub = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id = paramMap.get('id');
-      this.bookSevice.bookDetail(id).subscribe(next => {
+      this.bookService.bookDetail(id).subscribe(next => {
         this.book = next;
       }, error => {
         this.message = 'can not retrieve customer detail. ' + error;
@@ -30,7 +30,7 @@ export class DeleteComponent implements OnInit {
 
   delete() {
     console.log(this.book.id);
-    this.bookSevice.bookDelete(this.book.id).subscribe(next => {
+    this.bookService.bookDelete(this.book.id).subscribe(next => {
       this.message = 'Đã xóa sách';
     }, error => {
       this.message = 'Xóa Không Thành Công';

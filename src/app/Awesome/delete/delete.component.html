@@ -1,17 +1,17 @@
-<p>bạn có chắc muốn xóa : <u class="text-danger">{{book.title}}</u></p>
+<p> do you want Delete : <u class="text-danger">{{book.title}}</u></p>
 <div *ngIf="message">
   <p style="color: red">{{ message }} : <u class="text-danger">{{book.title}}</u></p>
 </div>
 <table class="table table-bordered">
   <tr>
-    <th><p>Tên Sách : </p></th>
+    <th><p>Tag: </p></th>
     <td>{{book.title}}</td>
   </tr>
   <tr>
-    <th><p>Tên Tác Giả : </p></th>
+    <th><p>URL: </p></th>
     <td>{{book.author}}</td>
   </tr> <tr>
-  <th><p>Mô Tả : </p></th>
+  <th><p>Descriptions : </p></th>
   <td>{{book.description}}</td>
 </tr>
 </table>
